@@ -117,7 +117,7 @@ class ViewController: UIViewController {
             //print(“Cancel”)
         }
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            //print(“OK”)
+            self.goAgain()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
