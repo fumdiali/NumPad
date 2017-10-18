@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var box8Label: UIButton!
     @IBOutlet weak var box9Label: UIButton!
     @IBOutlet weak var box10Label: UIButton!
-    @IBOutlet weak var box11Label: UIButton!
+    
     @IBOutlet weak var box12Label: UIButton!
     
     var scoreCounter: Int = 0
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
             displayTimer.textColor = UIColor.red
             displayTimer.text = "\(timer)"
         }
-        if timer == 0 {
+        /*if timer == 0 {
             let alertController = UIAlertController(title: "Time Up!", message: "Do you wish to repeat this Level?", preferredStyle: UIAlertControllerStyle.alert)
             let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
                   print("Game Over!")
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-        }
+        }*/
     }
 
     override func viewDidLoad() {
@@ -109,7 +109,35 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func aboutButton(_ sender: UIButton)
+    {
+        let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on each box to reveal a number; show lower than 5 and you lose 1point, show 5 or more and you gain 2points,but if you reveal a 10,you lose 2points AND that box! Proceed?", preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            //print(“Cancel”)
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            //print(“OK”)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
    
+    /*@IBAction func aboutButton(_ sender: UIButton)
+    {
+        let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on each box to reveal a number; show lower than 5 and you lose 1point, show 5 or more and you gain 2points,but if you reveal a 10,you lose 2points AND that box! Proceed?", preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            //print(“Cancel”)
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            //print(“OK”)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }*/
     
     @IBAction func box1Button(_ sender: UIButton)
     {
@@ -118,6 +146,11 @@ class ViewController: UIViewController {
         if rand >= 5{
           scoreCounter = scoreCounter + 2
           displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if rand < 5{
+          scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
+            displayLabel.text = "Score: \(scoreCounter)"
         }
         if rand == 10{
        self.box1Label.backgroundColor = UIColor.red
@@ -142,6 +175,11 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        if rand < 5{
+            scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
         if rand == 10{
           self.box2Label.backgroundColor = UIColor.red
           self.box2Label.isEnabled = false
@@ -158,6 +196,11 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        if rand < 5{
+            scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
         if rand == 10{
           self.box3Label.backgroundColor = UIColor.red
           self.box3Label.isEnabled = false
@@ -172,6 +215,11 @@ class ViewController: UIViewController {
         box4Label.setTitle(String(rand), for: UIControlState.normal)
         if rand >= 5{
             scoreCounter = scoreCounter + 2
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if rand < 5{
+            scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
         if rand == 10{
@@ -191,6 +239,11 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        if rand < 5{
+            scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
         if rand == 10{
             self.box5Label.backgroundColor = UIColor.red
             self.box5Label.isEnabled = false
@@ -205,6 +258,11 @@ class ViewController: UIViewController {
         box6Label.setTitle(String(rand), for: UIControlState.normal)
         if rand >= 5{
             scoreCounter = scoreCounter + 2
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if rand < 5{
+            scoreCounter = scoreCounter - 1
+            if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
         if rand == 10{
