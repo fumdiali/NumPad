@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  NumberPad
+//  NumberPad(Swift programming practice game dev)
 //
-//  Created by Apple on 12/10/2017.
+//  Created by Patrick C Diali on 12/10/2017.
 //  Copyright © 2017 Qilobyt. All rights reserved.
 //
 
@@ -154,21 +154,6 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-   
-    /*@IBAction func aboutButton(_ sender: UIButton)
-    {
-        let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on each box to reveal a number; show lower than 5 and you lose 1point, show 5 or more and you gain 2points,but if you reveal a 10,you lose 2points AND that box! Proceed?", preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
-            //print(“Cancel”)
-        }
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            //print(“OK”)
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-    }*/
-    
     //check time left
     func checkTime()
     {
@@ -211,15 +196,6 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
          displayLabel.text = "Score: \(scoreCounter)"
         }
-        
-        
-        /*else if rand <= 3{
-            box1Label.setTitle(String(rand), for: UIControlState.normal)
-            box1Label.setTitleColor(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1), for: UIControlState.normal)
-        }else{
-            box1Label.setTitle(String(rand), for: UIControlState.normal)
-            //box1Label.setTitleColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1), for: UIControlState.normal)
-        }*/
     }
     @IBAction func box2Button(_ sender: UIButton)
     {
@@ -415,11 +391,5 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-
-
 }// end of class
 
