@@ -28,53 +28,83 @@ class ViewController: UIViewController {
     @IBOutlet weak var box12Label: UIButton!
     
     var scoreCounter: Int = 0
-    var timer: Int = 20
+    var timer: Int = 30
     
     func goAgain(){
+        //reset variables etc
+        
        displayLabel.text = ""
        scoreCounter = 0
-       timer = 20
+       timer = 30
         displayTimer.textColor = UIColor.white
        displayTimer.text = "\(timer)"
+        
+        // buttons re-set
        box1Label.setTitle("0", for: UIControlState.normal)
+        box1Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box1Label.isEnabled = true
         if box1Label.backgroundColor == UIColor.red{
            box1Label.backgroundColor = UIColor.orange
         }
         
         box2Label.setTitle("0", for: UIControlState.normal)
+        box2Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box2Label.isEnabled = true
         if box2Label.backgroundColor == UIColor.red{
             box2Label.backgroundColor = UIColor.orange
         }
         
         box3Label.setTitle("0", for: UIControlState.normal)
+        box3Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box3Label.isEnabled = true
         if box3Label.backgroundColor == UIColor.red{
             box3Label.backgroundColor = UIColor.orange
         }
         
         box4Label.setTitle("0", for: UIControlState.normal)
+        box4Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box4Label.isEnabled = true
         if box4Label.backgroundColor == UIColor.red{
             box4Label.backgroundColor = UIColor.orange
         }
         
         box5Label.setTitle("0", for: UIControlState.normal)
+        box5Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box5Label.isEnabled = true
         if box5Label.backgroundColor == UIColor.red{
             box5Label.backgroundColor = UIColor.orange
         }
         
         box6Label.setTitle("0", for: UIControlState.normal)
+        box6Label.setTitleColor(UIColor.black, for: UIControlState.normal)
         box6Label.isEnabled = true
         if box6Label.backgroundColor == UIColor.red{
             box6Label.backgroundColor = UIColor.orange
         }
         
+        //box7Label.setTitle("0", for: UIControlState.normal)
+        box7Label.isEnabled = true
+        if box7Label.backgroundColor == UIColor.red{
+            box7Label.backgroundColor = UIColor.orange
+        }
+        
+        //box8Label.setTitle("0", for: UIControlState.normal)
+        box8Label.isEnabled = true
+        if box8Label.backgroundColor == UIColor.red{
+            box8Label.backgroundColor = UIColor.orange
+        }
+        
+        //box9Label.setTitle("0", for: UIControlState.normal)
+        box9Label.isEnabled = true
+        if box9Label.backgroundColor == UIColor.red{
+            box9Label.backgroundColor = UIColor.orange
+        }
+        
+        //start game timer countdown
         gameTimer()
     }
     
+    //handle game timer and time up alert/re-start
     func gameTimer(){
         if timer > 0 {
             timer = timer - 1
@@ -139,10 +169,31 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }*/
     
+    //check time left
+    func checkTime()
+    {
+    if timer < 1 {
+        //displayLabel.text = "Final:\(scoreCounter)"
+    box1Label.isEnabled = false
+    box2Label.isEnabled = false
+    box3Label.isEnabled = false
+    box4Label.isEnabled = false
+    box5Label.isEnabled = false
+    box6Label.isEnabled = false
+    box7Label.isEnabled = false
+    box8Label.isEnabled = false
+    box9Label.isEnabled = false
+                }
+    }
+    
     @IBAction func box1Button(_ sender: UIButton)
     {
         let rand = Int(arc4random_uniform(11))
        box1Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
           scoreCounter = scoreCounter + 2
           displayLabel.text = "Score: \(scoreCounter)"
@@ -154,11 +205,14 @@ class ViewController: UIViewController {
         }
         if rand == 10{
        self.box1Label.backgroundColor = UIColor.red
+       self.box1Label.setTitleColor(UIColor.white, for: UIControlState.normal)
        self.box1Label.isEnabled = false
         scoreCounter = scoreCounter - 4
             if scoreCounter <= 0{ scoreCounter = 0 }
          displayLabel.text = "Score: \(scoreCounter)"
         }
+        
+        
         /*else if rand <= 3{
             box1Label.setTitle(String(rand), for: UIControlState.normal)
             box1Label.setTitleColor(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1), for: UIControlState.normal)
@@ -171,6 +225,10 @@ class ViewController: UIViewController {
     {
         let rand = Int(arc4random_uniform(11))
         box2Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
@@ -182,16 +240,22 @@ class ViewController: UIViewController {
         }
         if rand == 10{
           self.box2Label.backgroundColor = UIColor.red
+          self.box2Label.setTitleColor(UIColor.white, for: UIControlState.normal)
           self.box2Label.isEnabled = false
           scoreCounter = scoreCounter - 4
             if scoreCounter <= 0{ scoreCounter = 0 }
           displayLabel.text = "Score: \(scoreCounter)"
         }
+        
     }
     @IBAction func box3Button(_ sender: UIButton)
     {
         let rand = Int(arc4random_uniform(11))
         box3Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
@@ -203,16 +267,22 @@ class ViewController: UIViewController {
         }
         if rand == 10{
           self.box3Label.backgroundColor = UIColor.red
+          self.box3Label.setTitleColor(UIColor.white, for: UIControlState.normal)
           self.box3Label.isEnabled = false
           scoreCounter = scoreCounter - 4
             if scoreCounter <= 0{ scoreCounter = 0 }
           displayLabel.text = "Score: \(scoreCounter)"
         }
+       
     }
     @IBAction func box4Button(_ sender: UIButton)
     {
         let rand = Int(arc4random_uniform(11))
         box4Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
@@ -224,17 +294,23 @@ class ViewController: UIViewController {
         }
         if rand == 10{
             self.box4Label.backgroundColor = UIColor.red
+            self.box4Label.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.box4Label.isEnabled = false
             scoreCounter = scoreCounter - 4
               if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        
     }
     
     @IBAction func box5Button(_ sender: UIButton)
     {
         let rand = Int(arc4random_uniform(11))
         box5Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
@@ -246,16 +322,22 @@ class ViewController: UIViewController {
         }
         if rand == 10{
             self.box5Label.backgroundColor = UIColor.red
+            self.box5Label.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.box5Label.isEnabled = false
             scoreCounter = scoreCounter - 4
               if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        
     }
     @IBAction func box6Button(_ sender: UIButton)
     {
         let rand = Int(arc4random_uniform(11))
         box6Label.setTitle(String(rand), for: UIControlState.normal)
+        
+        //time up,button disabled!
+        checkTime()
+        
         if rand >= 5{
             scoreCounter = scoreCounter + 2
             displayLabel.text = "Score: \(scoreCounter)"
@@ -267,12 +349,73 @@ class ViewController: UIViewController {
         }
         if rand == 10{
             self.box6Label.backgroundColor = UIColor.red
+            self.box6Label.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.box6Label.isEnabled = false
             scoreCounter = scoreCounter - 4
               if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        
     }
+    @IBAction func box7Button(_ sender: UIButton)
+    {
+        let rand = Int(arc4random_uniform(11))
+        
+        //time up,button disabled!
+        checkTime()
+        
+        if rand == 10{
+            scoreCounter = scoreCounter + 50
+            self.box7Label.backgroundColor = UIColor.red
+            box7Label.isEnabled = false //disable star box
+            displayLabel.text = "Crown!\(scoreCounter)"
+        }
+        if rand < 10{
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
+       
+    }
+    @IBAction func box8Button(_ sender: UIButton)
+    {
+        let rand = Int(arc4random_uniform(11))
+        
+        //time up,button disabled!
+        checkTime()
+        
+        if rand == 10 {
+            scoreCounter = scoreCounter + 100
+            self.box8Label.backgroundColor = UIColor.red
+            box8Label.isEnabled = false //disable star box
+            displayLabel.text = "Star!\(scoreCounter)"
+            //displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if rand < 10{
+            //displayLabel.text = "No Point!"
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
+        
+    }
+    @IBAction func box9Button(_ sender: UIButton)
+    {
+        let rand = Int(arc4random_uniform(11))
+        
+        //time up,button disabled!
+        checkTime()
+        
+        if rand == 10{
+            scoreCounter = scoreCounter + 30
+            self.box9Label.backgroundColor = UIColor.red
+            box9Label.isEnabled = false //disable star box
+            displayLabel.text = "Lolly!\(scoreCounter)"
+        }
+        if rand < 10{
+            //displayLabel.text = "No Point!"
+            displayLabel.text = "Score: \(scoreCounter)"
+        }
+        
+    }
+    
+    
     
     
     
