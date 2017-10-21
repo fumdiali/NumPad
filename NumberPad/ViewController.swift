@@ -153,7 +153,7 @@ class ViewController: UIViewController {
     
     @IBAction func aboutButton(_ sender: UIButton)
     {
-        let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on each box to reveal a number; show lower than 5 and you lose 1point, show 5 or more and you gain 2points,but if you reveal a 10,you lose 2points AND that box! Proceed?", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on any of the top 6 boxes to reveal a number or image. A star gives you 10points,a crown gives you 7points,a lolly gives 5points. Any number displayed is deducted from your score! Boxes with coloured images give and take more. Crown image gives 50points or takes 40points. Star image gives 100points or takes 90. Lolly: gives 30 or takes 20. Choose wisely. Are you ready?", preferredStyle: UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             //print(“Cancel”)
         }
@@ -223,7 +223,9 @@ class ViewController: UIViewController {
             box1Label.setImage(#imageLiteral(resourceName: "star"), for: UIControlState.normal)
             scoreCounter = scoreCounter + 10
             if scoreCounter <= 0{ scoreCounter = 0 }
+            
             displayLabel.text = "Score: \(scoreCounter)"
+            
         }
         else if rand == 7 {
             box1Label.setImage(#imageLiteral(resourceName: "crown"), for: UIControlState.normal)
@@ -242,6 +244,15 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
+        }
+        if scoreCounter >= 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100 {
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
         }
     }
     @IBAction func box2Button(_ sender: UIButton)
@@ -275,6 +286,15 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
+        }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
         }
         
     }
@@ -310,6 +330,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
+        }
        
     }
     @IBAction func box4Button(_ sender: UIButton)
@@ -343,6 +372,15 @@ class ViewController: UIViewController {
             scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
+        }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
         }
         
     }
@@ -379,6 +417,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
+        }
         
     }
     @IBAction func box6Button(_ sender: UIButton)
@@ -413,6 +460,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
+        }
         
     }
     @IBAction func box7Button(_ sender: UIButton)
@@ -433,6 +489,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
+        }
        
     }
     @IBAction func box8Button(_ sender: UIButton)
@@ -447,6 +512,7 @@ class ViewController: UIViewController {
             self.box8Label.backgroundColor = UIColor.red
             box8Label.isEnabled = false //disable star box
             displayLabel.text = "Star!\(scoreCounter)"
+            displayLabel.textColor = UIColor.green
             //displayLabel.text = "Score: \(scoreCounter)"
         }
         if rand < 10{
@@ -454,6 +520,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             //displayLabel.text = "No Point!"
             displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
         }
         
     }
@@ -475,6 +550,15 @@ class ViewController: UIViewController {
             if scoreCounter <= 0{ scoreCounter = 0 }
             //displayLabel.text = "No Point!"
             displayLabel.text = "Score: \(scoreCounter)"
+        }
+        if scoreCounter > 100 {
+            displayLabel.textColor = UIColor.green
+        }
+        if scoreCounter >= 50 && scoreCounter < 100{
+            displayLabel.textColor = UIColor.yellow
+        }
+        if scoreCounter < 50 {
+            displayLabel.textColor = UIColor.red
         }
         
     }
