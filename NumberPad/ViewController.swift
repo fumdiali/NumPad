@@ -239,7 +239,7 @@ class ViewController: UIViewController {
         }else {
             box1Label.setImage(nil, for: UIControlState.normal)
             box1Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -272,7 +272,7 @@ class ViewController: UIViewController {
         }else {
             box2Label.setImage(nil, for: UIControlState.normal)
             box2Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -306,7 +306,7 @@ class ViewController: UIViewController {
         }else {
             box3Label.setImage(nil, for: UIControlState.normal)
             box3Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -340,7 +340,7 @@ class ViewController: UIViewController {
         }else {
             box4Label.setImage(nil, for: UIControlState.normal)
             box4Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -375,7 +375,7 @@ class ViewController: UIViewController {
         }else {
             box5Label.setImage(nil, for: UIControlState.normal)
             box5Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -409,7 +409,7 @@ class ViewController: UIViewController {
         }else {
             box6Label.setImage(nil, for: UIControlState.normal)
             box6Label.setTitle(String(rand), for: UIControlState.normal)
-            scoreCounter = scoreCounter - 2
+            scoreCounter = scoreCounter - rand
             if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score:\(scoreCounter)"
         }
@@ -429,6 +429,8 @@ class ViewController: UIViewController {
             displayLabel.text = "Crown!\(scoreCounter)"
         }
         if rand < 10{
+            scoreCounter = scoreCounter - 40
+            if scoreCounter <= 0{ scoreCounter = 0 }
             displayLabel.text = "Score: \(scoreCounter)"
         }
        
@@ -448,6 +450,8 @@ class ViewController: UIViewController {
             //displayLabel.text = "Score: \(scoreCounter)"
         }
         if rand < 10{
+            scoreCounter = scoreCounter - 90
+            if scoreCounter <= 0{ scoreCounter = 0 }
             //displayLabel.text = "No Point!"
             displayLabel.text = "Score: \(scoreCounter)"
         }
@@ -467,6 +471,8 @@ class ViewController: UIViewController {
             displayLabel.text = "Lolly!\(scoreCounter)"
         }
         if rand < 10{
+            scoreCounter = scoreCounter - 20
+            if scoreCounter <= 0{ scoreCounter = 0 }
             //displayLabel.text = "No Point!"
             displayLabel.text = "Score: \(scoreCounter)"
         }
