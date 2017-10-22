@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -151,6 +152,49 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // audio play things
+    var player: AVAudioPlayer?
+    
+    //sound efx for first 6 buttons
+    func tapSound() {
+        guard let url = Bundle.main.url(forResource: "drip", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    //sound efx for bonus buttons hi-score
+    func bonusSound() {
+        guard let url = Bundle.main.url(forResource: "Ting Sound", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     @IBAction func aboutButton(_ sender: UIButton)
     {
         let alertController = UIAlertController(title: "About NumPad", message: "You have 60secs to score as many points as you can. Tap on any of the top 6 boxes to reveal a number or image. A star gives you 10points,a crown gives you 7points,a lolly gives 5points. Any number displayed is deducted from your score! Boxes with coloured images give and take more. Crown image gives 50points or takes 40points. Star image gives 100points or takes 90. Lolly: gives 30 or takes 20. Choose wisely. Are you ready?", preferredStyle: UIAlertControllerStyle.alert)
@@ -210,6 +254,7 @@ class ViewController: UIViewController {
 //    }
     @IBAction func box1Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box1Label.setTitle(String(rand), for: UIControlState.normal)
         //scoreCounter = scoreCounter - 2
@@ -257,6 +302,7 @@ class ViewController: UIViewController {
     }
     @IBAction func box2Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box2Label.setTitle(String(rand), for: UIControlState.normal)
         
@@ -300,6 +346,7 @@ class ViewController: UIViewController {
     }
     @IBAction func box3Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box3Label.setTitle(String(rand), for: UIControlState.normal)
         
@@ -343,6 +390,7 @@ class ViewController: UIViewController {
     }
     @IBAction func box4Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box4Label.setTitle(String(rand), for: UIControlState.normal)
         
@@ -387,6 +435,7 @@ class ViewController: UIViewController {
     
     @IBAction func box5Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box5Label.setTitle(String(rand), for: UIControlState.normal)
         
@@ -430,6 +479,7 @@ class ViewController: UIViewController {
     }
     @IBAction func box6Button(_ sender: UIButton)
     {
+        tapSound()
         let rand = Int(arc4random_uniform(11))
         box6Label.setTitle(String(rand), for: UIControlState.normal)
         
@@ -479,6 +529,7 @@ class ViewController: UIViewController {
         checkTime()
         
         if rand == 10{
+            bonusSound()
             scoreCounter = scoreCounter + 50
             self.box7Label.backgroundColor = UIColor.red
             box7Label.isEnabled = false //disable star box
@@ -508,6 +559,7 @@ class ViewController: UIViewController {
         checkTime()
         
         if rand == 10 {
+            bonusSound()
             scoreCounter = scoreCounter + 100
             self.box8Label.backgroundColor = UIColor.red
             box8Label.isEnabled = false //disable star box
@@ -540,6 +592,7 @@ class ViewController: UIViewController {
         checkTime()
         
         if rand == 10{
+            bonusSound()
             scoreCounter = scoreCounter + 30
             self.box9Label.backgroundColor = UIColor.red
             box9Label.isEnabled = false //disable star box
